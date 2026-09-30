@@ -1,0 +1,33 @@
+<div class="calculator-container">
+  <h1 class="calculator-title">{{message}}</h1>
+  
+  <div class="calculator-body">
+    <div class="display">
+      <div class="display-text">{{display}}</div>
+    </div>
+    
+    <div class="keypad">
+      <button class="btn btn-clear" (click)="clear()">AC</button>
+      <button class="btn btn-operator" (click)="setOperator('/')">÷</button>
+      <button class="btn btn-operator" (click)="setOperator('*')">×</button>
+      <button class="btn btn-operator" (click)="setOperator('-')">−</button>
+      
+      <button class="btn" (click)="appendNumber('7')">7</button>
+      <button class="btn" (click)="appendNumber('8')">8</button>
+      <button class="btn" (click)="appendNumber('9')">9</button>
+      <button class="btn btn-operator" (click)="setOperator('+')">+</button>
+      
+      <button class="btn" (click)="appendNumber('4')">4</button>
+      <button class="btn" (click)="appendNumber('5')">5</button>
+      <button class="btn" (click)="appendNumber('6')">6</button>
+      <button class="btn btn-equals" (click)="compute()">=</button>
+      
+      <div class="bottom-row">
+        <button class="btn" (click)="appendNumber('1')">1</button>
+        <button class="btn" (click)="appendNumber('2')">2</button>
+        <button class="btn" (click)="appendNumber('3')">3</button>
+        <button class="btn btn-zero" (click)="appendNumber('0')">0</button>
+      </div>
+    </div>
+  </div>
+</div>
