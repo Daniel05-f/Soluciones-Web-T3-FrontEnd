@@ -1,6 +1,6 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,12 +30,12 @@ export class PatientEditComponent {
 
   protected $form = signal(new FormGroup({
     idPatient: new FormControl<number | null>(null),
-    firstName: new FormControl<string>(''),
-    lastName: new FormControl<string>(''),
-    dni: new FormControl<string>(''),
-    address: new FormControl<string>(''),
-    phone: new FormControl<string>(''),
-    email: new FormControl<string>('')
+    firstName: new FormControl<string>('', [ Validators.required, Validators.minLength(3), Validators.maxLength(70) ]),
+    lastName: new FormControl<string>('', [ Validators.required, Validators.minLength(3), Validators.maxLength(70) ]),
+    dni: new FormControl<string>('', [ Validators.required, Validators.minLength(8), Validators.maxLength(8) ]),
+    address: new FormControl<string>('',[ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]),
+    phone: new FormControl<string>('', [ Validators.required, Validators.minLength(9), Validators.maxLength(15), Validators.pattern('^[0-9]+$') ]),
+    email: new FormControl<string>('', [ Validators.required, Validators.email ]),
   }));
 
   private readonly $params = toSignal(this.route.params, { initialValue: {} });
@@ -64,7 +64,7 @@ export class PatientEditComponent {
     const isEdit = this.$isEdit();
     const id = this.$id();
 
-    // if(form.invalid) return;
+    if(form.invalid) return;
 
     const patient: Patient = form.value as Patient;
     /*const patient: Patient = new Patient();
