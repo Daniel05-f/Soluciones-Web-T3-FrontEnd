@@ -1,6 +1,35 @@
-# Swapp16045Frontend
+# Sistema de Gestión Citas Médicas - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.0.
+Este proyecto ha sido generado usando [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+
+Aplicación web distribuida (Spring Boot + Angular) que automatice la gestión Gestión de usuarios y accesos, gestión médica (médicos, especialidades, exámenes), gestión de citas, registro de consulta resultante y reportes básicos, aplicando arquitectura en capas, buenas prácticas de seguridad y principios de sostenibilidad tecnológica (ODS 9)
+
+Este proyecto es desarrollado como parte del curso Soluciones Web y Aplicaciones Distribuidas con NRC 16045, correspondiente al período UPN 2026-2
+
+## A considerar
+
+Cuando clone el proyecto, para que la aplicación descargue las dependencias, desde la línea de comandos navegue a la línea de comandos y ejecute:
+
+```bash
+npm install
+```
+
+Se ha deshabilitado el modo estricto de typescript en el archivo `tsconfig.json`
+```bash
+"strict": false,
+```
+
+Y para un comportamiento según versiones de angular anteriores se agregó en `angular.json` la siguiente configuración:
+
+```bash
+    "schematics": {
+        "@schematics/angular:component": { "type": "component" },
+        "@schematics/angular:service": { "type": "service" },
+        "@schematics/angular:pipe": { "typeSeparator": "." },
+        "@schematics/angular:module": { "typeSeparator": "." }
+      }
+```
+
 
 ## Development server
 
