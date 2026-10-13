@@ -1,0 +1,48 @@
+<form [formGroup] ="$form()" (submit)="operate()" class="example-container"> 
+    <div [hidden]="true">
+        <mat-form-field>
+            <mat-label>ID</mat-label>
+            <input matInput placeholder="ID" formControlName="idPatient">
+        </mat-form-field>
+    </div>
+     <mat-form-field>
+        <mat-label>FIRSTNAME</mat-label>
+        <input matInput placeholder="FirstName" formControlName="firstName">
+
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>LASTNAME</mat-label>
+        <input matInput placeholder="LastName" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>DNI</mat-label>
+        <input matInput placeholder="DNI" formControlName="dni">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>ADDRESS</mat-label>
+        <input matInput placeholder="Address" formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>PHONE</mat-label>
+        <input matInput placeholder="Phone" formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>EMAIL</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <button mat-flat-button type="submit">
+        <span>OK</span>
+        <mat-icon>done</mat-icon>
+    </button>
+
+    <button mat-flat-button type="button" class="cancel-button" routerLink="/pages/patient">
+        <span>Cancel</span>
+        <mat-icon>cancel</mat-icon>
+    </button>
+</form>
