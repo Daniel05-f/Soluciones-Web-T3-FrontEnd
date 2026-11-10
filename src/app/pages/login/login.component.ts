@@ -1,7 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+
 @Component({
+  standalone: true,
   selector: 'app-login',
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
@@ -11,7 +13,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
 
   protected form: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    username: ['', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 

@@ -5,18 +5,14 @@
     <h2>CLINICAPP</h2>
     <h3>Iniciar sesión</h3>
 
-    <label>Correo electrónico</label>
+    <label>Usuario</label>
     <input
-      type="email"
-      formControlName="email"
-      placeholder="Ingrese su correo">
+      type="text"
+      formControlName="username"
+      placeholder="Ingrese su usuario">
 
-    @if (form.get('email')?.touched && form.get('email')?.errors?.['required']) {
-    <small>El correo es obligatorio.</small>
-    }
-
-    @if (form.get('email')?.touched && form.get('email')?.errors?.['email']) {
-    <small>Ingrese un correo válido.</small>
+    @if (form.get('username')?.touched && form.get('username')?.errors?.['required']) {
+      <small>El usuario es obligatorio.</small>
     }
 
     <label>Contraseña</label>
