@@ -12,43 +12,56 @@
     <mat-label>SPECIALTY</mat-label>
     <mat-select formControlName="idSpecialty">
       @for (specialty of $specialties(); track specialty.idSpecialty) {
-      <mat-option [value]="specialty.idSpecialty">
-        {{ specialty.name }}
-      </mat-option>
+        <mat-option [value]="specialty.idSpecialty">
+          {{ specialty.name }}
+        </mat-option>
       }
     </mat-select>
 
     @if ($f()['idSpecialty'].errors?.['required'] && $f()['idSpecialty'].touched) {
-    <small class="invalid">Is required</small>
+      <small class="invalid">Is required</small>
     }
   </mat-form-field>
+
   <mat-form-field>
     <mat-label>FIRST NAME</mat-label>
     <input matInput placeholder="First name" formControlName="primaryName">
+
     @if ($f()['primaryName'].errors?.['required'] && $f()['primaryName'].touched) {
-    <small class="invalid">Is required</small>
+      <small class="invalid">Is required</small>
     }
     @if ($f()['primaryName'].errors?.['minlength'] && $f()['primaryName'].touched) {
-    <small class="invalid">Minlength is 3</small>
+      <small class="invalid">Minimum length is 3</small>
+    }
+    @if ($f()['primaryName'].errors?.['maxlength'] && $f()['primaryName'].touched) {
+      <small class="invalid">Maximum length is 70</small>
     }
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>LAST NAME</mat-label>
     <input matInput placeholder="Last name" formControlName="surname">
+
     @if ($f()['surname'].errors?.['required'] && $f()['surname'].touched) {
-    <small class="invalid">Is required</small>
+      <small class="invalid">Is required</small>
     }
     @if ($f()['surname'].errors?.['minlength'] && $f()['surname'].touched) {
-    <small class="invalid">Minlength is 3</small>
+      <small class="invalid">Minimum length is 3</small>
+    }
+    @if ($f()['surname'].errors?.['maxlength'] && $f()['surname'].touched) {
+      <small class="invalid">Maximum length is 70</small>
     }
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>CMP</mat-label>
     <input matInput placeholder="CMP" formControlName="cmpMedic">
+
     @if ($f()['cmpMedic'].errors?.['required'] && $f()['cmpMedic'].touched) {
-    <small class="invalid">Is required</small>
+      <small class="invalid">Is required</small>
+    }
+    @if ($f()['cmpMedic'].errors?.['pattern'] && $f()['cmpMedic'].touched) {
+      <small class="invalid">CMP cannot contain only spaces</small>
     }
   </mat-form-field>
 
@@ -68,4 +81,3 @@
   </button>
 
 </form>
-

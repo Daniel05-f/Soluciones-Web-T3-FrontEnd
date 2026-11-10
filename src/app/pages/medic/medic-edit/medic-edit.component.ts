@@ -48,7 +48,7 @@ export class MedicEditComponent {
         Validators.minLength(3),
         Validators.maxLength(70),
       ]),
-      cmpMedic: new FormControl<string>('', [Validators.required]),
+      cmpMedic: new FormControl<string>('', [Validators.required, Validators.pattern(/.*\S.*/)]),
       photo: new FormControl<string>(''),
     }),
   );
