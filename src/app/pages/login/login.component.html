@@ -1,0 +1,39 @@
+
+<div class="login-container">
+  <form [formGroup]="form" (ngSubmit)="login()" class="login-card">
+
+    <h2>CLINICAPP</h2>
+    <h3>Iniciar sesión</h3>
+
+    <label>Correo electrónico</label>
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="Ingrese su correo">
+
+    @if (form.get('email')?.touched && form.get('email')?.errors?.['required']) {
+    <small>El correo es obligatorio.</small>
+    }
+
+    @if (form.get('email')?.touched && form.get('email')?.errors?.['email']) {
+    <small>Ingrese un correo válido.</small>
+    }
+
+    <label>Contraseña</label>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Ingrese su contraseña">
+
+    @if (form.get('password')?.touched && form.get('password')?.errors?.['required']) {
+    <small>La contraseña es obligatoria.</small>
+    }
+
+    @if (form.get('password')?.touched && form.get('password')?.errors?.['minlength']) {
+    <small>Debe tener al menos 6 caracteres.</small>
+    }
+
+    <button type="submit">INGRESAR</button>
+
+  </form>
+</div>

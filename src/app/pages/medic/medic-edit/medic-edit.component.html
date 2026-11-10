@@ -1,0 +1,71 @@
+
+<form [formGroup]="$form()" (submit)="operate()" class="example-container" #frmMedic="ngForm">
+
+  <div [hidden]="true">
+    <mat-form-field>
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="idMedic">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <mat-label>SPECIALTY</mat-label>
+    <mat-select formControlName="idSpecialty">
+      @for (specialty of $specialties(); track specialty.idSpecialty) {
+      <mat-option [value]="specialty.idSpecialty">
+        {{ specialty.name }}
+      </mat-option>
+      }
+    </mat-select>
+
+    @if ($f()['idSpecialty'].errors?.['required'] && $f()['idSpecialty'].touched) {
+    <small class="invalid">Is required</small>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>FIRST NAME</mat-label>
+    <input matInput placeholder="First name" formControlName="primaryName">
+    @if ($f()['primaryName'].errors?.['required'] && $f()['primaryName'].touched) {
+    <small class="invalid">Is required</small>
+    }
+    @if ($f()['primaryName'].errors?.['minlength'] && $f()['primaryName'].touched) {
+    <small class="invalid">Minlength is 3</small>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>LAST NAME</mat-label>
+    <input matInput placeholder="Last name" formControlName="surname">
+    @if ($f()['surname'].errors?.['required'] && $f()['surname'].touched) {
+    <small class="invalid">Is required</small>
+    }
+    @if ($f()['surname'].errors?.['minlength'] && $f()['surname'].touched) {
+    <small class="invalid">Minlength is 3</small>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>CMP</mat-label>
+    <input matInput placeholder="CMP" formControlName="cmpMedic">
+    @if ($f()['cmpMedic'].errors?.['required'] && $f()['cmpMedic'].touched) {
+    <small class="invalid">Is required</small>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>PHOTO</mat-label>
+    <input matInput placeholder="Photo URL" formControlName="photo">
+  </mat-form-field>
+
+  <button mat-flat-button type="submit" [disabled]="frmMedic.invalid">
+    <span>OK</span>
+    <mat-icon>done</mat-icon>
+  </button>
+
+  <button mat-flat-button type="button" class="cancel-button" routerLink="/pages/medic">
+    <span>Cancel</span>
+    <mat-icon>cancel</mat-icon>
+  </button>
+
+</form>
+
